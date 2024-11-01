@@ -1,0 +1,82 @@
+Exercicio 1
+
+HTML
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Pessoal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Perfil: Rodrigo Jardim Monteiro</h1>
+            <p>Matrícula: 202402837893</p>
+        </header>
+
+        <section class="info">
+            <h2>Sobre Mim</h2>
+            <p>Sou Rodrigo, estudante de Ciencia da Computação na Estácio.</p>
+        </section>
+
+        <section class="objetivo">
+            <h2>Objetivo Pessoal</h2>
+            <p>Meu Objetivo pessoal é tentar ser um bom programador pra ganhar uma boa grna pra ter uma vida tranquila.</p>
+        </section>
+    </div>
+</body>
+</html>
+----------------------------------
+CSS
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: white;
+}
+
+.container {
+    width: 80%;
+    max-width: 600px;
+    background-color: black;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2em;
+    color:lightgreen;
+}
+
+.info, .objetivo {
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: white;
+    border-bottom: 2px solid white;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+p {
+    line-height: 1.6;
+}
