@@ -1,0 +1,125 @@
+Exercicio 2
+
+HTML
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de Produtos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Produtos Disponíveis</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Preço</th>
+                    <th>Categoria</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Controle Gamer</td>
+                    <td>R$ 120,00</td>
+                    <td>Eletrônicos</td>
+                    <td>Controle igual aos normais de console exceto pelas luzes coloridas.</td>
+                </tr>
+                <tr>
+                    <td>Café super forte</td>
+                    <td>R$ 15,00</td>
+                    <td>Alimentos</td>
+                    <td>Energetico feito para não deixar você dormi a noite.</td>
+                </tr>
+                <tr>
+                    <td>Fone sem fio</td>
+                    <td>R$ 300,00</td>
+                    <td>Eletrodomésticos</td>
+                    <td>Fone que não tem fio e usa bateria (melhor compra um normal).</td>
+                </tr>
+                <tr>
+                    <td>Paçoca</td>
+                    <td>R$ 20,00</td>
+                    <td>Alimentos</td>
+                    <td>Comida feita para causar discordia.</td>
+                </tr>
+                <tr>
+                    <td>PS5 Pro</td>
+                    <td>R$ 25.000,00</td>
+                    <td>Eletrônicos</td>
+                    <td>Video Game feito para ricos anti pobres.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+----------------------------------------
+CSS
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e3e7f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #2c3e50;
+}
+
+.container {
+    width: 90%;
+    max-width: 700px;
+}
+
+h1 {
+    text-align: center;
+    color: #34495e;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+thead tr {
+    background-color: #2980b9;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid red;
+}
+
+tbody tr {
+    transition: background-color 0.2s;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: lightblue;
+}
+
+tbody tr:nth-child(even) {
+    background-color: lightgrey;
+}
+
+tbody tr:hover {
+    background-color: white;
+}
