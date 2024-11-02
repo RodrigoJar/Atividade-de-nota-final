@@ -1,0 +1,130 @@
+Exercicio 3
+//O que eu briguei com esse programa não ta escrito//
+HTML
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Contato</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Coloque suas Informações</h2>
+        <form id="contactForm">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Mensagem:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+        <div id="messageBox"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+------------------------------------------------
+CSS
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: red;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: red;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    margin-top: 10px;
+    display: block;
+    font-weight: bold;
+}
+
+input, textarea, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid red;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+button {
+    margin-top: 15px;
+    background-color: lightgreen;
+    color: lightgreen;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0,5s;
+}
+
+button:hover {
+    
+    background-color: lightgreen;
+    color: lightgreen;
+}
+
+#messageBox {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1em;
+}
+-----------------------------------------------
+Javascript
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Impede o envio do formulário
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+    const messageBox = document.getElementById("messageBox");
+
+    // Verificação de preenchimento dos campos
+    if (name === "" || email === "" || message === "") {
+        messageBox.style.color = "red";
+        messageBox.textContent = "Por favor, preencha todos os espaços.";
+        return;
+    }
+
+    // Verificação de formato do email
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        messageBox.style.color = "red";
+        messageBox.textContent = "Por favor, insira um email existente.";
+        return;
+    }
+
+    // Mensagem de sucesso se todas as validações forem atendidas
+    messageBox.style.color = "blue";
+    messageBox.textContent = "Formulário foi enviado com sucesso!";
+    document.getElementById("contactForm").reset();
+});
