@@ -1,0 +1,124 @@
+Exercicio 4
+HTML
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Calculadora de IMC</h2>
+        <form id="formIMC">
+            <label for="peso">Peso (kg):</label>
+            <input type="number" id="peso" name="peso" required>
+
+            <label for="altura">Altura (m):</label>
+            <input type="number" id="altura" name="altura" step="0.01" required>
+
+            <button type="button" onclick="calcularIMC()">Calcular IMC</button>
+        </form>
+        <div id="resultado"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+----------------------------------------------------
+
+CSS
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    margin-top: 10px;
+    display: block;
+    font-weight: bold;
+}
+
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    margin-top: 15px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.5s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#resultado {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1em;
+}
+----------------------------------------------------------
+JAVAscript
+function calcularIMC() {
+    const peso = parseFloat(document.getElementById("peso").value);
+    const altura = parseFloat(document.getElementById("altura").value);
+    const resultado = document.getElementById("resultado");
+
+    if (isNaN(peso) || isNaN(altura) || peso <= 0 || altura <= 0) {
+        resultado.style.color = "red";
+        resultado.textContent = "Por favor, insira valores válidos para peso e altura.";
+        return;
+    }
+
+    const imc = peso / (altura * altura);
+    resultado.style.color = "green";
+    if (imc<18.5) resultado.style.color = "red";
+    resultado.textContent = `Seu IMC é ${imc.toFixed(2)}`;
+  
+    // Classificação do IMC
+    if (imc < 18.5) {
+        resultado.textContent += " (Abaixo do peso)";
+
+    } else if (imc >= 18.5 && imc < 24.9) {
+        resultado.textContent += " (Peso normal)";
+    } else if (imc >= 25 && imc < 29.9) {
+        resultado.textContent += " (Sobrepeso)";
+    } else if (imc >= 30 && imc < 100) {
+        resultado.textContent += " (Quebrou a balança)";
+    }
+}
